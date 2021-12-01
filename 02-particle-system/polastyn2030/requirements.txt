@@ -1,0 +1,8 @@
+# Add here the extra requirements for your project.
+# You cannot specify version numbers (yet).
+# Lines starting with a "#" are ignored.
+# DO NOT list pygame here.
+
+# Please try to limit you dependencies as much as you can
+
+# numpy
