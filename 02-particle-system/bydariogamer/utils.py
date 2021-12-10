@@ -22,7 +22,6 @@ __all__ = [
     "text",
     "randomize_color",
     "randomize_vel",
-    "break_surface",
 ]
 
 SUBMISSION_DIR = Path(__file__).parent
@@ -115,18 +114,3 @@ def randomize_color(color):
 
 def randomize_vel(vel):
     return random.gauss(1, 0.5) * vel.rotate(random.gauss(0, 10))
-
-
-@lru_cache()
-def break_surface(surf, divs):
-    # return [
-    #     pygame.surfarray.make_surface(array)
-    surfaces = []
-    for nested_list in (
-        numpy.hsplit(vertical, divs)
-        for vertical in numpy.vsplit(pygame.surfarray.array2d(surf), divs)
-    ):
-        for array in nested_list:
-            surfaces.append(pygame.surfarray.make_surface(array))
-
-    return surfaces
